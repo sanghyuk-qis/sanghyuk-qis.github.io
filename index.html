@@ -3,691 +3,424 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Academic homepage of Sang Hyuk Hong, an AMO experimentalist working on neutral-atom tweezer arrays, quantum information science, optically pumped magnetometers, and nuclear magnetic resonance gyroscopes." />
-  <title>Sang Hyuk Hong</title>
+  <meta name="description" content="Sang Hyuk Hong is an AMO experimentalist at Seoul National University. His interests connect atomic sensors and neutral-atom control with future research in quantum metrology, optical clocks, and quantum computational sensing." />
+  <meta name="theme-color" content="#173f8a" />
+  <title>Sang Hyuk Hong | Quantum Metrology</title>
   <style>
     :root {
+      color-scheme: light;
       --bg: #fbfbfa;
-      --card: #ffffff;
-      --text: #1f2933;
-      --muted: #687385;
-      --line: #e6e8ec;
-      --accent: #1f5eff;
-      --accent-soft: #eef3ff;
-      --accent-dark: #1439a8;
+      --paper: #ffffff;
+      --text: #202b3c;
+      --muted: #586477;
+      --line: #dfe5ee;
+      --accent: #173f8a;
+      --accent-hover: #0c2c65;
+      --accent-soft: #edf2fb;
       --max-width: 1080px;
-      --radius: 18px;
-      --shadow: 0 18px 45px rgba(31, 41, 51, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
     body {
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(31, 94, 255, 0.07), transparent 32rem),
-        linear-gradient(180deg, #ffffff 0%, var(--bg) 28rem);
-      line-height: 1.65;
+      background: var(--bg);
     }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
+    a { color: var(--accent); text-underline-offset: 0.2em; }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+    .container { width: min(100% - 3rem, var(--max-width)); margin-inline: auto; }
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 1rem;
+      z-index: 100;
+      padding: 0.7rem 1rem;
+      color: var(--paper);
+      background: var(--accent);
+      transform: translateY(-200%);
     }
-
-    a:hover {
-      color: var(--accent-dark);
-      text-decoration: underline;
-    }
-
-    .container {
-      width: min(100% - 2rem, var(--max-width));
-      margin: 0 auto;
-    }
-
+    .skip-link:focus { transform: translateY(0); color: var(--paper); }
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.78);
-      border-bottom: 1px solid rgba(230, 232, 236, 0.9);
+      background: rgba(251, 251, 250, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
     }
-
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      gap: 1.5rem;
+      min-height: 72px;
     }
-
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      font-size: 0.94rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    main {
-      padding-bottom: 5rem;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.75fr;
-      gap: 3rem;
-      align-items: center;
-      padding: 5.5rem 0 4.5rem;
-    }
-
-    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-size: 0.86rem;
-      font-weight: 700;
+      gap: 0.7rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: -0.025em;
     }
-
-    h1, h2, h3 {
-      line-height: 1.18;
-      letter-spacing: -0.035em;
-      margin: 0;
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #c6d3eb;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      color: var(--accent);
     }
-
-    h1 {
-      margin-top: 1.2rem;
-      font-size: clamp(2.5rem, 6vw, 4.8rem);
-    }
-
-    .subtitle {
-      margin: 1.25rem 0 0;
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
       color: var(--muted);
-      max-width: 700px;
     }
-
-    .intro {
-      margin: 1.5rem 0 0;
-      max-width: 720px;
-      font-size: 1.02rem;
+    .nav-links a:hover { color: var(--accent); text-decoration: underline; }
+    main { padding-bottom: 4.5rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 4rem;
+      align-items: start;
+      padding-block: 4.5rem 4rem;
     }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
-
+    h1, h2, h3 { margin: 0; line-height: 1.25; }
+    h1 { font-size: clamp(2.6rem, 5.4vw, 3.7rem); letter-spacing: -0.055em; }
+    .intro { margin-top: 1.6rem; max-width: 68ch; }
+    .intro p { margin: 0 0 1rem; }
+    .intro strong { font-weight: 650; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
-      min-height: 42px;
-      padding: 0.65rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--card);
+      min-height: 44px;
+      padding: 0.55rem 0.95rem;
+      border: 1px solid #cbd4e2;
+      border-radius: 7px;
+      font-size: 0.875rem;
+      font-weight: 650;
       color: var(--text);
-      font-weight: 700;
-      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.06);
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
+      background: var(--paper);
       text-decoration: none;
+      transition: background-color 150ms ease, border-color 150ms ease;
     }
-
-    .profile-card {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid rgba(230, 232, 236, 0.95);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: var(--shadow);
-    }
-
-    .profile-photo {
-      width: 100%;
+    .button:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+    .button.primary { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+    .button.primary:hover { background: var(--accent-hover); }
+    .profile { margin: 0.3rem 0 0; }
+    .portrait {
+      position: relative;
+      overflow: hidden;
       aspect-ratio: 4 / 5;
-      object-fit: cover;
-      border-radius: 22px;
-      background: #e9edf5;
-      display: block;
+      border-radius: 14px;
+      background: var(--accent-soft);
     }
-
-    .profile-meta {
-      padding: 1.05rem 0.3rem 0.2rem;
-    }
-
-    .profile-meta strong {
-      display: block;
-      font-size: 1.08rem;
-    }
-
-    .profile-meta span {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    section {
-      padding: 4.2rem 0 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(1.8rem, 3vw, 2.45rem);
-    }
-
-    .section-note {
-      max-width: 580px;
-      color: var(--muted);
-      margin: 0.7rem 0 0;
-    }
-
-    .grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid.three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.35rem;
-      box-shadow: 0 10px 28px rgba(31, 41, 51, 0.04);
-    }
-
-    .card h3 {
-      font-size: 1.14rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin: 0.45rem 0 0;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      background: #f3f5f8;
-      color: #4e5969;
-      font-size: 0.79rem;
-      font-weight: 700;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 1rem;
-      padding: 1.2rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--card);
-    }
-
-    .date {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 700;
-    }
-
-    .timeline-item h3 {
-      font-size: 1.05rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .publication-list {
-      display: grid;
-      gap: 0.85rem;
-      counter-reset: pub-counter;
-    }
-
-    .publication {
-      counter-increment: pub-counter;
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 1rem;
-      padding: 1.2rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--card);
-    }
-
-    .publication::before {
-      content: counter(pub-counter);
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
+    .portrait-fallback {
       display: grid;
       place-items: center;
+      width: 100%;
+      height: 100%;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 4.5rem;
+      letter-spacing: -0.06em;
+    }
+    .profile-photo {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       background: var(--accent-soft);
-      color: var(--accent-dark);
-      font-weight: 800;
     }
-
-    .publication-title {
-      font-weight: 800;
-      line-height: 1.35;
-    }
-
-    .authors {
-      color: var(--muted);
-      margin: 0.35rem 0 0;
-      font-size: 0.96rem;
-    }
-
-    .venue {
-      margin: 0.35rem 0 0;
-      color: #445064;
-      font-size: 0.95rem;
-    }
-
-    .pub-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 0.6rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .footer {
-      padding: 3rem 0;
+    .profile-meta { padding: 1.15rem 0.1rem 0; font-size: 0.9rem; color: var(--muted); }
+    .profile-meta strong { display: block; color: var(--text); font-size: 1rem; font-weight: 650; }
+    .profile-meta span { display: block; }
+    .profile-location { margin-top: 0.65rem; }
+    section { padding-top: 2.5rem; border-top: 1px solid var(--line); }
+    section + section { margin-top: 3.5rem; }
+    .section-heading { margin-bottom: 1.75rem; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.1rem); letter-spacing: -0.035em; }
+    .section-note { margin: 0.65rem 0 0; color: var(--muted); max-width: 72ch; }
+    .timeline { display: grid; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 175px minmax(0, 1fr);
+      gap: 2rem;
+      padding: 1.5rem 0;
       border-top: 1px solid var(--line);
+    }
+    .timeline-item:first-child { border-top: 0; padding-top: 0; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .date { font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .date span { display: block; }
+    .timeline-item h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.015em; }
+    .institution { margin: 0.25rem 0 0.7rem; color: var(--accent); font-weight: 600; }
+    .experience-copy { margin: 0; max-width: 78ch; color: var(--muted); }
+    .experience-copy + .experience-copy { margin-top: 0.5rem; }
+    .publication-group-title {
+      font-size: 0.875rem;
+      font-weight: 650;
+      letter-spacing: 0.035em;
       color: var(--muted);
-      font-size: 0.92rem;
+      margin-bottom: 1rem;
     }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
+    .publication-list { margin: 0; padding: 0; list-style: none; counter-reset: paper; }
+    .publication-list + .publication-group-title { margin-top: 2.5rem; }
+    .publication {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
       gap: 1rem;
-      flex-wrap: wrap;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--line);
+      counter-increment: paper;
     }
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 3.5rem;
-      }
-
-      .profile-card {
-        max-width: 420px;
-      }
-
-      .grid.two,
-      .grid.three {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        gap: 0.8rem;
-        font-size: 0.88rem;
-      }
+    .publication::before {
+      content: counter(paper, decimal-leading-zero);
+      padding-top: 0.1rem;
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-variant-numeric: tabular-nums;
     }
+    .publication-title { margin: 0; font-size: 1.05rem; font-weight: 700; line-height: 1.5; }
+    .authors { margin: 0.45rem 0 0; color: var(--muted); font-size: 0.93rem; }
+    .authors strong { color: var(--text); font-weight: 650; }
+    .venue { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    .pub-links { margin-top: 0.3rem; }
+    .pub-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.875rem; font-weight: 650; }
+    .status { display: inline-block; color: var(--text); font-weight: 550; }
+    .manuscripts { counter-reset: paper 3; }
+    footer { padding-block: 1.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; }
+    .footer-inner a { overflow-wrap: anywhere; }
 
-    @media (max-width: 620px) {
-      .nav {
-        height: auto;
-        padding: 0.9rem 0;
-        align-items: flex-start;
-        gap: 0.8rem;
-        flex-direction: column;
-      }
-
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 0.15rem;
-      }
-
-      .publication {
-        grid-template-columns: 1fr;
-      }
-
-      .publication::before {
-        margin-bottom: -0.3rem;
-      }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr) 220px; gap: 2rem; padding-top: 3rem; }
+      .timeline-item { grid-template-columns: 145px minmax(0, 1fr); gap: 1.5rem; }
+    }
+    @media (max-width: 700px) {
+      html { scroll-padding-top: 135px; }
+      .nav { flex-wrap: wrap; gap: 0.2rem 1rem; padding-block: 0.7rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 2.75rem; }
+      .profile { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: center; gap: 1.25rem; }
+      .portrait { border-radius: 10px; }
+      .portrait-fallback { font-size: 2.75rem; }
+      .profile-meta { padding: 0; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .date span { display: inline; }
+      section { padding-top: 2rem; }
+      section + section { margin-top: 2.75rem; }
+    }
+    @media (max-width: 380px) {
+      .container { width: calc(100% - 2rem); }
+      .profile { grid-template-columns: 96px minmax(0, 1fr); gap: 1rem; }
+      .publication { grid-template-columns: 24px minmax(0, 1fr); gap: 0.7rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+    @media print {
+      body { background: white; color: black; font-size: 10pt; }
+      header, .skip-link, .button-row { display: none; }
+      .container { width: 100%; }
+      .hero { padding-block: 0 1.5rem; grid-template-columns: minmax(0, 1fr) 150px; gap: 2rem; }
+      .profile { display: block; }
+      .profile-meta { padding-top: 0.75rem; }
+      h1 { font-size: 28pt; }
+      h2 { font-size: 19pt; }
+      section { padding-top: 1.25rem; }
+      section + section { margin-top: 1.5rem; }
+      .timeline-item, .publication { break-inside: avoid; }
+      a { color: inherit; }
+      main { padding-bottom: 1.5rem; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Sang Hyuk Hong home">
-        <span class="brand-mark">SH</span>
+        <span class="brand-mark" aria-hidden="true">SH</span>
         <span>Sang Hyuk Hong</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
-        <a href="./assets/SangHyukHong_CV.pdf">CV</a>
+        <a href="#publications">Publications</a>
+        <a href="./assets/SangHyukHong_CV.pdf" target="_blank" rel="noopener">CV</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <div class="container hero">
+  <main id="main-content" tabindex="-1">
+    <div class="container hero" id="top">
       <div>
-        <span class="eyebrow">Quantum Information Science · Neutral Atom Quantum Computing</span>
+        <p class="eyebrow">Experimental AMO Physics · Quantum Metrology</p>
         <h1>Sang Hyuk Hong</h1>
-        <p class="subtitle">
-          A Research Assistant at Quantum Gas Lab, Seoul National University, working toward dual-type dual-element neutral atom tweezer arrays for quantum information science.
-        </p>
-        <p class="intro">
-          I am an AMO experimentalist interested in building controllable quantum systems from the ground up. My past work focused on precision atomic sensors, including optically pumped magnetometers and nuclear magnetic resonance gyroscopes. I am now moving toward Rb–Yb mixed-species tweezer arrays, with a long-term goal of contributing to scalable neutral-atom quantum computing, simulation, and metrology.
-        </p>
+        <div class="intro">
+          <p>
+            I am an AMO experimentalist interested in <strong>quantum metrology</strong> and the control of atomic systems for precision measurement. I received my B.S. in Physics from Korea University and am currently a Research Assistant at the Quantum Gas Lab, Seoul National University.
+          </p>
+          <p>
+            At the Agency for Defense Development, I worked on <strong>optically pumped magnetometers and Rb–Xe nuclear magnetic resonance gyroscopes</strong>, including vapor-cell fabrication and spin-relaxation analysis. This work shaped my interest in how experimental design and control of systematic effects determine measurement performance.
+          </p>
+          <p>
+            At Seoul National University, I contribute to the construction of an <strong>Rb–Yb mixed-species neutral-atom tweezer array</strong> platform for quantum information science, extending my experience from vapor-cell sensors to individually controlled atoms. For my Ph.D., I aim to build on this foundation in quantum metrology, with particular interests in <strong>optical clocks and quantum computational sensing</strong>.
+          </p>
+        </div>
         <div class="button-row" aria-label="Contact and profile links">
-          <a class="button" href="mailto:kevinsanghyukhong@gmail.com">Email</a>
-          <a class="button" href="https://scholar.google.com/citations?user=Bwf_yLUAAAAJ&hl=ko" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="button primary" href="mailto:kevinsanghyukhong@gmail.com">Email</a>
+          <a class="button" href="https://scholar.google.com/citations?user=Bwf_yLUAAAAJ&amp;hl=ko" target="_blank" rel="noopener">Google Scholar</a>
           <a class="button" href="https://www.linkedin.com/in/sang-hyuk-hong-422bb91a0/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="button" href="./assets/SangHyukHong_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a class="button" href="./assets/SangHyukHong_CV.pdf" target="_blank" rel="noopener">View CV</a>
         </div>
       </div>
 
-      <aside class="profile-card" aria-label="Profile">
-        <img class="profile-photo" src="./assets/profile.jpg" alt="Portrait of Sang Hyuk Hong" />
+      <aside class="profile" aria-label="Current affiliation">
+        <div class="portrait">
+          <div class="portrait-fallback" aria-hidden="true">SH</div>
+          <!-- Keep your existing portrait at assets/profile.jpg. -->
+          <img class="profile-photo" src="./assets/profile.jpg" alt="Portrait of Sang Hyuk Hong" width="280" height="350" decoding="async" onerror="this.hidden = true;" />
+        </div>
         <div class="profile-meta">
-          <strong>Sang Hyuk Hong</strong>
-          <span>Seoul, Republic of Korea</span><br />
-          <span>kevinsanghyukhong@gmail.com</span>
+          <strong>Research Assistant</strong>
+          <span>Quantum Gas Lab</span>
+          <span>Seoul National University</span>
+          <span class="profile-location">Seoul, Republic of Korea</span>
         </div>
       </aside>
     </div>
 
-    <section id="about">
-      <div class="container">
+    <div class="container">
+      <section id="experience" aria-labelledby="experience-heading">
         <div class="section-heading">
-          <div>
-            <h2>About</h2>
-            <p class="section-note">
-              My research path connects precision measurement with programmable quantum systems: from hot vapor to single cold atom for quantum science.
-            </p>
-          </div>
+          <h2 id="experience-heading">Experience</h2>
         </div>
-        <div class="grid three">
-          <article class="card">
-            <h3>Background</h3>
-            <p>
-              I received my B.S. in Physics from Korea University, where coursework and research exposure in atomic physics motivated my interest in AMO systems and precision measurement.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Previous focus</h3>
-            <p>
-              At the Agency for Defense Development, I worked on optically pumped magnetometers, Rb–Xe nuclear magnetic resonance gyroscopes, vapor-cell fabrication, and spin-relaxation analysis.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Current direction</h3>
-            <p>
-              I am joining Seoul National University to help construct an Rb–Yb mixed-species neutral-atom tweezer array platform for quantum information science.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="research">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <h2>Research</h2>
-            <p class="section-note">
-              I organize my work into two connected themes: earlier work on atomic sensors and current work on neutral-atom platforms for quantum information science.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid two">
-          <article class="card">
-            <h3>Old: OPMs and NMR gyroscopes</h3>
-            <p>
-              My previous research focused on alkali–noble-gas vapor-cell systems for precision sensing. This included mode-hop assisted all-optical atomic magnetometry, heading-error analysis, compact Rb–Xe atom spin gyroscopes, optical-contact-bonded vapor cells, and heated-wire sealing methods designed to reduce geometry-induced systematic errors.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Optically pumped magnetometry</span>
-              <span class="tag">NMR gyroscopes</span>
-              <span class="tag">Rb–Xe vapor cells</span>
-              <span class="tag">Spin relaxation</span>
-              <span class="tag">COMSOL</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Now: Neutral-atom tweezer arrays and QIS</h3>
-            <p>
-              My current research direction is the construction of mixed-species neutral-atom tweezer arrays using Rb and Yb. I am especially interested in the experimental infrastructure that enables scalable control: optical system design, ultra-high-vacuum integration, frequency-stabilized lasers, site-resolved control, and coherent many-body dynamics.
-            </p>
-            <div class="tag-row">
-              <span class="tag">Rb–Yb tweezer arrays</span>
-              <span class="tag">Quantum information</span>
-              <span class="tag">Quantum simulation</span>
-              <span class="tag">Optical systems</span>
-              <span class="tag">UHV</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="grid two" style="margin-top: 1rem;">
-          <article class="card">
-            <h3>Selected research questions</h3>
-            <p>
-              How can controllable neutral-atom arrays be engineered into reliable platforms for computation, simulation, and precision measurement? How can lessons from precision spin dynamics and systematic-error control inform future quantum devices?
-            </p>
-          </article>
-          <article class="card">
-            <h3>Methods and tools</h3>
-            <p>
-              Experimental AMO physics, optical and laser systems, ultra-high-vacuum hardware, vapor-cell fabrication, magnetic-field control, signal processing, Python, Mathematica, COMSOL Multiphysics, LabVIEW, Origin, and SolidWorks.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <h2>Publications</h2>
-            <p class="section-note">
-              A list of papers and manuscripts. Please see my CV or Google Scholar for the most up-to-date publication record.
-            </p>
-          </div>
-        </div>
-
-        <div class="publication-list">
-          <article class="publication">
-            <div>
-              <div class="publication-title">Laser mode-hopping assisted all-optical single beam pulsed atomic magnetometer</div>
-              <p class="authors">Ji Hoon Yoon, <strong>Sang Hyuk Hong</strong>, Taek Jeong, Sin Hyuk Yim, Kyu Min Shim, and Sangkyung Lee</p>
-              <p class="venue">arXiv:2404.01874, 2024</p>
-              <div class="pub-links"><a href="https://arxiv.org/abs/2404.01874" target="_blank" rel="noopener">[Link]</a></div>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div>
-              <div class="publication-title">Fabrication of an Rb–Xe gas cell with optical components attached by optical contact bonding for an atom spin gyroscope</div>
-              <p class="authors"><strong>Sang Hyuk Hong</strong>, Sin Hyuk Yim, Taek Jeong, Jeong Bin Nam, and Sangkyung Lee</p>
-              <p class="venue">Applied Optics, 2025</p>
-              <div class="pub-links"><a href="https://doi.org/10.1364/AO.554573" target="_blank" rel="noopener">[Link]</a></div>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div>
-              <div class="publication-title">Aging test of atomic vapor cell with Al<sub>2</sub>O<sub>3</sub> wall coating on cubic glass</div>
-              <p class="authors">Hyeonjae Kim, Taek Jeong, <strong>Sang Hyuk Hong</strong>, Jeong Bin Nam, Sangkyung Lee, Younghoon Lim, and Sin Hyuk Yim</p>
-              <p class="venue">Applied Optics, 2025</p>
-              <div class="pub-links"><a href="https://doi.org/10.1364/AO.572036" target="_blank" rel="noopener">[Link]</a></div>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div>
-              <div class="publication-title">Novel sealing of glass-blown atomic gas cells using a resistive heating wire</div>
-              <p class="authors"><strong>Sang Hyuk Hong</strong>, Younghoon Lim, Sin Hyuk Yim, Sangkyung Lee, Hyeonjae Kim, Taek Jeong, and Jeong Bin Nam</p>
-              <p class="venue">Manuscript under review, 2026</p>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div>
-              <div class="publication-title">Development and characterization of atom spin gyroscopes</div>
-              <p class="authors"><strong>Sang Hyuk Hong</strong>, Sangkyung Lee, Sin Hyuk Yim, Sang Rae Yeo, Sangmin Lee, Hoon Yu, Taek Jeong, Jeong Bin Nam, Dongkyu Kim, and Younghoon Lim</p>
-              <p class="venue">In preparation, 2026</p>
-            </div>
-          </article>
-
-          <article class="publication">
-            <div>
-              <div class="publication-title">AC magnetic field gradient-induced transverse relaxation for diffusive spin-1/2 particles in a cubic cell</div>
-              <p class="authors"><strong>Sang Hyuk Hong</strong> and Sangkyung Lee</p>
-              <p class="venue">In preparation, 2026</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <h2>Experience</h2>
-            <p class="section-note">
-              Research appointments, education, and selected milestones.
-            </p>
-          </div>
-        </div>
-
         <div class="timeline">
           <article class="timeline-item">
-            <div class="date">July 2026 –</div>
+            <div class="date"><time datetime="2026-07">July 2026</time> – Present</div>
             <div>
-              <h3>Research Assistant · Seoul National University</h3>
-              <p>Contributing to the construction of an Rb–Yb mixed-species neutral-atom tweezer array platform for quantum information science.</p>
+              <h3>Research Assistant</h3>
+              <p class="institution">Quantum Gas Lab · Seoul National University</p>
+              <p class="experience-copy">Contributing to the construction of an Rb–Yb mixed-species neutral-atom tweezer array platform for quantum information science.</p>
             </div>
           </article>
-
           <article class="timeline-item">
-            <div class="date">June 2023 – May 2026</div>
+            <div class="date"><time datetime="2023-06">June 2023</time> – <span><time datetime="2026-05">May 2026</time></span></div>
             <div>
-              <h3>Research Officer for National Defense · Agency for Defense Development</h3>
-              <p>Worked on optically pumped magnetometers and nuclear magnetic resonance gyroscopes during three-year military service as a commissioned officer in the Republic of Korea Air Force.</p>
+              <h3>Research Officer for National Defense</h3>
+              <p class="institution">Agency for Defense Development</p>
+              <p class="experience-copy">Worked on optically pumped magnetometers and Rb–Xe nuclear magnetic resonance gyroscopes, with a focus on vapor-cell fabrication, spin-relaxation analysis, and systematic effects in atomic sensors.</p>
+              <p class="experience-copy">Completed three-year military service as a commissioned officer in the Republic of Korea Air Force.</p>
             </div>
           </article>
-
           <article class="timeline-item">
-            <div class="date">2019 – 2023</div>
+            <div class="date"><time datetime="2019">2019</time> – <time datetime="2023">2023</time></div>
             <div>
-              <h3>B.S. Physics · Korea University</h3>
-              <p>GPA: 4.09 / 4.50; Major GPA: 4.19 / 4.50.</p>
+              <h3>B.S. in Physics</h3>
+              <p class="institution">Korea University</p>
+              <p class="experience-copy">GPA: 4.09 / 4.50 · Major GPA: 4.19 / 4.50</p>
             </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="publications" aria-labelledby="publications-heading">
+        <div class="section-heading">
+          <h2 id="publications-heading">Publications</h2>
+          <p class="section-note">For the latest publication record, see my <a href="https://scholar.google.com/citations?user=Bwf_yLUAAAAJ&amp;hl=ko" target="_blank" rel="noopener">Google Scholar profile</a>.</p>
+        </div>
+
+        <h3 class="publication-group-title" id="papers-heading">Papers &amp; preprints</h3>
+        <ol class="publication-list" aria-labelledby="papers-heading" role="list">
+          <li class="publication">
+            <div>
+              <p class="publication-title">Fabrication of an Rb–Xe gas cell with optical components attached by optical contact bonding for an atom spin gyroscope</p>
+              <p class="authors"><strong>Sang Hyuk Hong</strong>, Sin Hyuk Yim, Taek Jeong, Jeong Bin Nam, and Sangkyung Lee</p>
+              <p class="venue"><em>Applied Optics</em>, 2025</p>
+              <div class="pub-links"><a href="https://doi.org/10.1364/AO.554573" target="_blank" rel="noopener" aria-label="DOI: Fabrication of an Rb–Xe gas cell with optical contact bonding">DOI ↗</a></div>
+            </div>
+          </li>
+          <li class="publication">
+            <div>
+              <p class="publication-title">Aging test of atomic vapor cell with Al<sub>2</sub>O<sub>3</sub> wall coating on cubic glass</p>
+              <p class="authors">Hyeonjae Kim, Taek Jeong, <strong>Sang Hyuk Hong</strong>, Jeong Bin Nam, Sangkyung Lee, Younghoon Lim, and Sin Hyuk Yim</p>
+              <p class="venue"><em>Applied Optics</em>, 2025</p>
+              <div class="pub-links"><a href="https://doi.org/10.1364/AO.572036" target="_blank" rel="noopener" aria-label="DOI: Aging test of atomic vapor cell with aluminum oxide wall coating">DOI ↗</a></div>
+            </div>
+          </li>
+          <li class="publication">
+            <div>
+              <p class="publication-title">Laser mode-hopping assisted all-optical single beam pulsed atomic magnetometer</p>
+              <p class="authors">Ji Hoon Yoon, <strong>Sang Hyuk Hong</strong>, Taek Jeong, Sin Hyuk Yim, Kyu Min Shim, and Sangkyung Lee</p>
+              <p class="venue">arXiv:2404.01874, 2024 · Preprint</p>
+              <div class="pub-links"><a href="https://arxiv.org/abs/2404.01874" target="_blank" rel="noopener" aria-label="arXiv preprint: Laser mode-hopping assisted atomic magnetometer">arXiv ↗</a></div>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Publication and manuscript statuses are retained from the supplied page. -->
+        <h3 class="publication-group-title" id="manuscripts-heading">Manuscripts</h3>
+        <ol class="publication-list manuscripts" start="4" aria-labelledby="manuscripts-heading" role="list">
+          <li class="publication">
+            <div>
+              <p class="publication-title">Novel sealing of glass-blown atomic gas cells using a resistive heating wire</p>
+              <p class="authors"><strong>Sang Hyuk Hong</strong>, Younghoon Lim, Sin Hyuk Yim, Sangkyung Lee, Hyeonjae Kim, Taek Jeong, and Jeong Bin Nam</p>
+              <p class="venue"><span class="status">Manuscript under review</span> · 2026</p>
+            </div>
+          </li>
+          <li class="publication">
+            <div>
+              <p class="publication-title">Development and characterization of atom spin gyroscopes</p>
+              <p class="authors"><strong>Sang Hyuk Hong</strong>, Sangkyung Lee, Sin Hyuk Yim, Sang Rae Yeo, Sangmin Lee, Hoon Yu, Taek Jeong, Jeong Bin Nam, Dongkyu Kim, and Younghoon Lim</p>
+              <p class="venue"><span class="status">In preparation</span> · 2026</p>
+            </div>
+          </li>
+          <li class="publication">
+            <div>
+              <p class="publication-title">AC magnetic field gradient-induced transverse relaxation for diffusive spin-1/2 particles in a cubic cell</p>
+              <p class="authors"><strong>Sang Hyuk Hong</strong> and Sangkyung Lee</p>
+              <p class="venue"><span class="status">In preparation</span> · 2026</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container footer-inner">
-      <span>© <span id="year"></span> Sang Hyuk Hong</span>
-      <span>Built with plain HTML/CSS and hosted on GitHub Pages.</span>
+      <span>© <span id="year">2026</span> Sang Hyuk Hong</span>
+      <a href="mailto:kevinsanghyukhong@gmail.com">kevinsanghyukhong@gmail.com</a>
     </div>
   </footer>
-
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
