@@ -6,6 +6,10 @@
   <meta name="description" content="Sang Hyuk Hong is an AMO experimentalist at Seoul National University. His interests connect atomic sensors and neutral-atom control with future research in quantum metrology, optical clocks, and quantum computational sensing." />
   <meta name="theme-color" content="#173f8a" />
   <title>Sang Hyuk Hong</title>
+  <!-- Load the actual web fonts; system fonts remain available as fallbacks. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&amp;family=Source+Sans+3:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet" />
   <style>
     :root {
       color-scheme: light;
@@ -18,6 +22,8 @@
       --accent-hover: #0c2c65;
       --accent-soft: #edf2fb;
       --max-width: 1080px;
+      --font-body: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-heading: "Manrope", "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -25,8 +31,9 @@
     html { scroll-behavior: smooth; scroll-padding-top: 100px; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 1rem;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 400;
       line-height: 1.7;
       color: var(--text);
       background: var(--bg);
@@ -67,7 +74,8 @@
       gap: 0.7rem;
       color: var(--text);
       text-decoration: none;
-      font-weight: 750;
+      font-family: var(--font-heading);
+      font-weight: 650;
       letter-spacing: -0.025em;
     }
     .brand-mark {
@@ -85,7 +93,7 @@
       display: inline-flex;
       align-items: center;
       min-height: 44px;
-      font-size: 0.9rem;
+      font-size: 0.9375rem;
       font-weight: 600;
       text-decoration: none;
       color: var(--muted);
@@ -102,16 +110,21 @@
     .eyebrow {
       margin: 0 0 0.9rem;
       font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.09em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
     }
     h1, h2, h3 { margin: 0; line-height: 1.25; }
-    h1 { font-size: clamp(2.6rem, 5.4vw, 3.7rem); letter-spacing: -0.055em; }
+    h1, h2 { font-family: var(--font-heading); font-weight: 600; }
+    h1 { font-size: clamp(2.5rem, 5.4vw, 3.7rem); line-height: 1.12; letter-spacing: -0.04em; }
+    sub, sup { font-size: 0.75em; line-height: 0; position: relative; vertical-align: baseline; }
+    sub { bottom: -0.2em; }
+    sup { top: -0.45em; }
+    .unit { white-space: nowrap; }
     .intro { margin-top: 1.6rem; max-width: 68ch; }
     .intro p { margin: 0 0 1rem; }
-    .intro strong { font-weight: 650; }
+    .intro strong { font-weight: 600; }
     .button-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
     .button {
       display: inline-flex;
@@ -121,8 +134,8 @@
       padding: 0.55rem 0.95rem;
       border: 1px solid #cbd4e2;
       border-radius: 7px;
-      font-size: 0.875rem;
-      font-weight: 650;
+      font-size: 0.9375rem;
+      font-weight: 600;
       color: var(--text);
       background: var(--paper);
       text-decoration: none;
@@ -145,9 +158,10 @@
       width: 100%;
       height: 100%;
       color: var(--accent);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--font-heading);
       font-size: 4.5rem;
-      letter-spacing: -0.06em;
+      font-weight: 500;
+      letter-spacing: -0.04em;
     }
     .profile-photo {
       position: absolute;
@@ -158,14 +172,14 @@
       object-fit: cover;
       background: var(--accent-soft);
     }
-    .profile-meta { padding: 1.15rem 0.1rem 0; font-size: 0.9rem; color: var(--muted); }
-    .profile-meta strong { display: block; color: var(--text); font-size: 1rem; font-weight: 650; }
+    .profile-meta { padding: 1.15rem 0.1rem 0; font-size: 0.9375rem; line-height: 1.6; color: var(--muted); }
+    .profile-meta strong { display: block; color: var(--text); font-size: 1.0625rem; font-weight: 600; }
     .profile-meta span { display: block; }
     .profile-location { margin-top: 0.65rem; }
     section { padding-top: 2.5rem; border-top: 1px solid var(--line); }
     section + section { margin-top: 3.5rem; }
     .section-heading { margin-bottom: 1.75rem; }
-    h2 { font-size: clamp(1.75rem, 3vw, 2.1rem); letter-spacing: -0.035em; }
+    h2 { font-size: clamp(1.75rem, 3vw, 2.1rem); line-height: 1.2; letter-spacing: -0.025em; }
     .section-note { margin: 0.65rem 0 0; color: var(--muted); max-width: 72ch; }
     .timeline { display: grid; }
     .timeline-item {
@@ -177,16 +191,16 @@
     }
     .timeline-item:first-child { border-top: 0; padding-top: 0; }
     .timeline-item:last-child { padding-bottom: 0; }
-    .date { font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .date { font-size: 0.9375rem; color: var(--muted); font-variant-numeric: tabular-nums; }
     .date span { display: block; }
-    .timeline-item h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.015em; }
+    .timeline-item h3 { font-size: 1.125rem; font-weight: 650; line-height: 1.35; letter-spacing: -0.01em; }
     .institution { margin: 0.25rem 0 0.7rem; color: var(--accent); font-weight: 600; }
     .experience-copy { margin: 0; max-width: 78ch; color: var(--muted); }
     .experience-copy + .experience-copy { margin-top: 0.5rem; }
     .publication-group-title {
-      font-size: 0.875rem;
-      font-weight: 650;
-      letter-spacing: 0.035em;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: 0.025em;
       color: var(--muted);
       margin-bottom: 1rem;
     }
@@ -207,15 +221,15 @@
       font-size: 0.875rem;
       font-variant-numeric: tabular-nums;
     }
-    .publication-title { margin: 0; font-size: 1.05rem; font-weight: 700; line-height: 1.5; }
-    .authors { margin: 0.45rem 0 0; color: var(--muted); font-size: 0.93rem; }
-    .authors strong { color: var(--text); font-weight: 650; }
-    .venue { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    .publication-title { margin: 0; font-size: 1.125rem; font-weight: 600; line-height: 1.45; }
+    .authors { margin: 0.45rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+    .authors strong { color: var(--text); font-weight: 600; }
+    .venue { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.9375rem; }
     .pub-links { margin-top: 0.3rem; }
-    .pub-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.875rem; font-weight: 650; }
+    .pub-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; font-weight: 600; }
     .status { display: inline-block; color: var(--text); font-weight: 550; }
     .manuscripts { counter-reset: paper 3; }
-    footer { padding-block: 1.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
+    footer { padding-block: 1.75rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9375rem; }
     .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem 2rem; }
     .footer-inner a { overflow-wrap: anywhere; }
 
@@ -378,7 +392,7 @@
           </li>
           <li class="publication">
             <div>
-              <p class="publication-title">Laser mode-hopping assisted all-optical single beam pulsed atomic magnetometer with a sub-pT/$\sqrt{\mathbf{Hz}}$ sensitivity</p>
+              <p class="publication-title">Laser mode-hopping assisted all-optical single beam pulsed atomic magnetometer with a sub-<span class="unit">pT/√Hz</span> sensitivity</p>
               <p class="authors">Ji Hoon Yoon, <strong>Sang Hyuk Hong</strong>, Taek Jeong, Sin Hyuk Yim, Kyu Min Shim, and Sangkyung Lee</p>
               <p class="venue">arXiv:2404.01874, 2024 · Preprint</p>
               <div class="pub-links"><a href="https://arxiv.org/abs/2404.01874" target="_blank" rel="noopener" aria-label="arXiv preprint: Laser mode-hopping assisted atomic magnetometer">arXiv ↗</a></div>
